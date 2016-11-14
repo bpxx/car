@@ -2,19 +2,21 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>聊城踏浪专卖店</title>
+    <title>聊城踏浪电动车专卖店</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/animate.css"/>
     <link type="text/css" rel="stylesheet" href="css/reset.min.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <script  type="text/javascript">
         ~function(){
-            var desW=750;
-            var winW=document.documentElement.clientWidth;
-            if(winW>750) return;
-            document.documentElement.style.fontSize= winW/desW*100+'px';
+            ~function (desW) {
+                var winW = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize = winW / desW * 100 + "px";
+            }(750);
         }();
     </script>
 </head>
@@ -22,32 +24,101 @@
 <section class="main">
     <div class="musicW">
         <div class="music">
-            <audio src="./audio/beyond.mp3" loop preload="none" id="bemp3"></audio>
+            <audio src="./audio/talang.mp3" loop preload="none" id="bemp3"></audio>
         </div>
-        sssss
     </div>
-<div style="height: 200px"></div>
+    <div class="tip"><img src="img/web-swipe-tip.png" alt="向上滑动"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+               <span>最经典的车</span>
+               <span>最优势的价格</span>
+               <span>踏浪专卖店</span>
+               <span>踏浪电动车</span>
+                <img src="img/bg_1.jpg" alt="">
+            </div>
+            <div class="swiper-slide slide2">
+                <p>欢迎光临，进店有惊喜！</p>
+                <img src="img/2_2.jpg" alt="聊城电动车">
+               <div style="clear: both"></div>
+                <p></p>
+                <p>聊城市鲁化路 与 兴华路 交叉路口<br/>农机公司楼下</p>
+                <p>&nbsp;&nbsp;兴华东路 &nbsp;&nbsp;兴华东路&nbsp;&nbsp;兴华东路 &nbsp;&nbsp;</p>
+                <p> 鲁化路 <i>●</i></p>
+            </div>
+            <div class="swiper-slide slide3">
+                <img src="img/16b.jpg" alt="电动车">
+                <img src="img/2_1.jpg" alt="踏浪" >
+                <p>高中低档</p>
+                <p>随意选</p>
+            </div>
+            <div class="swiper-slide slide4">
+                <p> <img src="img/dc1.jpg" alt="电动车"><br/>门店</p>
+                <p> <img src="img/dc2.jpg" alt="电动车"><br/>门店前区域</p>
+                <p> <img src="img/dc3.jpg" alt="电动车"><br/>踏浪电动车</p>
+            </div>
+            <div class="swiper-slide slide5">
+                <p>如有问题，请点击下方的<br/>电话预约 <br/>联系人：辛先生</p>
+                <p><img src="img/tel2.jpg" alt="电动车">13780718081</p>
+               <p><a href="tel:13780718081"><img src="img/tel.jpg" alt=""></a></p>
+            </div>
+
+        </div>
+    </div>
 </section>
+</body>
+<script src="./js/swiper.min.js"></script>
 <script>
-    var music=document.querySelector('.music');
-    var beyond=document.querySelector('#bemp3');
-    window.setTimeout(function(){
-        beyond.play();
-        beyond.addEventListener('canplay',function(){
-            music.className='music musicCur';
-        })
-    },1000)
-    music.addEventListener('click',function(){
-        if(beyond.paused){
-            beyond.play();//播放
-            music.className='music musicCur';
-        }else {
-            beyond.pause();//停止
-            music.className='music';
-            music.style.opacity=1;
+    ~function () {
+        var audioBox = document.querySelector(".music"),
+                myAudio = document.querySelector('#bemp3');
+        window.setTimeout(function () {
+            myAudio.play();
+            myAudio.addEventListener("canplay", function () {
+                audioBox.style.display = "block";
+                audioBox.className += " musicCur";
+            }, false);
+        }, 1000);
+
+        //->点击音乐图标,实现音频的暂停或者播放
+        audioBox.addEventListener("click", function () {
+            if (myAudio.paused) {//->当前是暂停的,我让其播放
+                myAudio.play();
+                audioBox.className = "music musicCur";
+                return;
+            }
+            //->当前是播放的,我让其暂停
+            myAudio.pause();
+            audioBox.className = "music";
+            audioBox.style.opacity=1;
+        }, false);
+    }();
+
+    var mySwiper=new Swiper('.swiper-container', {
+        direction:'vertical',
+        loop:true,
+        autoplay:9000,
+        onTransitionEnd:function(swiper){
+            var slides=swiper.slides;
+            var curIndex=swiper.activeIndex;
+            var lastIndexSlide=slides.length-1;
+            var trueIndexSlide=slides.length-2;
+            [].forEach.call(slides,function(item,index){
+                item.id='';
+                if(curIndex==index){
+                    switch (index){
+                        case 0:
+                            item.id='page'+trueIndexSlide;
+                            break;
+                        case lastIndexSlide:
+                            item.id='page1';
+                            break;
+                        default:
+                            item.id='page'+(curIndex);
+                    }
+                }
+            })
         }
     })
-
 </script>
-</body>
 </html>
