@@ -464,8 +464,8 @@ a, a:active, a:hover, a:visited, a:target {
     padding: 1.5rem 0 1rem 0rem;
     font-size: .4rem;
     color: #250f07;
-    -webkit-animation:bounceInLeft 1s linear  both;
-    animation: bounceInLeft 1s linear  both;
+    /*-webkit-animation:bounceInLeft 1s linear  both;
+    animation: bounceInLeft 1s linear  both;*/
 }
 .slide5 p:nth-child(2) img{
     width: 1rem;
@@ -478,9 +478,11 @@ a, a:active, a:hover, a:visited, a:target {
     animation: flipInX 2s   linear infinite both;
 }
 .slide5 p:nth-child(3){
-    font-size: .4rem;
     text-align: center;
     padding: 2rem 0 0 0;
+}
+.slide5 p:nth-child(3) a{
+ display: block;
 }
 .slide5 p:nth-child(3) img{
     border: 0.02rem solid #fff;
