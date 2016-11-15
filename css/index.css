@@ -464,8 +464,8 @@ a, a:active, a:hover, a:visited, a:target {
     padding: 1.5rem 0 1rem 0rem;
     font-size: .4rem;
     color: #250f07;
-    -webkit-animation:bounceInLeft 1s linear 3s   both;
-    animation: bounceInLeft 1s linear 3s   both;
+    -webkit-animation:bounceInLeft 1s linear  both;
+    animation: bounceInLeft 1s linear  both;
 }
 .slide5 p:nth-child(2) img{
     width: 1rem;
@@ -474,8 +474,8 @@ a, a:active, a:hover, a:visited, a:target {
     float: left;
 }
 #page5 p:nth-child(2) img{
-   /* -webkit-animation:flipInX 2s linear infinite  both;
-    animation: flipInX 2s   linear infinite both;*/
+    -webkit-animation:flipInX 2s linear infinite  both;
+    animation: flipInX 2s   linear infinite both;
 }
 .slide5 p:nth-child(3){
     font-size: .4rem;
