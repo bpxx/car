@@ -479,7 +479,7 @@ a, a:active, a:hover, a:visited, a:target {
 }
 .slide5 p:nth-child(3){
     text-align: center;
-    padding: 2rem 0 0 0;
+    padding: .6rem 0 0 0;
 }
 .slide5 p:nth-child(3) a{
     display: block;
